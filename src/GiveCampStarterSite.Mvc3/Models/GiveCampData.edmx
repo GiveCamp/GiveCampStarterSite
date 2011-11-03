@@ -6,10 +6,35 @@
     <edmx:StorageModels>
     <Schema Namespace="GiveCampModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="GiveCampModelStoreContainer">
+          <EntitySet Name="Charities" EntityType="GiveCampModel.Store.Charities" store:Type="Tables" />
+          <EntitySet Name="CharityProjects" EntityType="GiveCampModel.Store.CharityProjects" store:Type="Tables" />
           <EntitySet Name="Page" EntityType="GiveCampModel.Store.Page" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="GiveCampModel.Store.Post" store:Type="Tables" />
           <EntitySet Name="Sponsor" EntityType="GiveCampModel.Store.Sponsor" store:Type="Tables" />
         </EntityContainer>
+        <EntityType Name="Charities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="LogoUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="Website" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CharityProjects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Votes" Type="image" />
+        </EntityType>
         <EntityType Name="Page">
           <Key>
             <PropertyRef Name="Id" />
@@ -65,6 +90,8 @@
           <EntitySet Name="Pages" EntityType="GiveCampModel.Page" />
           <EntitySet Name="Posts" EntityType="GiveCampModel.Post" />
           <EntitySet Name="Sponsors" EntityType="GiveCampModel.Sponsor" />
+          <EntitySet Name="Charities" EntityType="GiveCampModel.Charity" />
+          <EntitySet Name="CharityProjects" EntityType="GiveCampModel.CharityProject" />
         </EntityContainer>
         <EntityType Name="Page">
           <Key>
@@ -112,6 +139,29 @@
           <Property Type="String" Name="ContactEmail" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SponsorshipLevel" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LogoUrl" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Charity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactPhone" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LogoUrl" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Website" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CharityProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateCreated" />
+          <Property Type="Binary" Name="Votes" MaxLength="Max" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -165,6 +215,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Charities">
+            <EntityTypeMapping TypeName="GiveCampModel.Charity">
+              <MappingFragment StoreEntitySet="Charities">
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CharityProjects">
+            <EntityTypeMapping TypeName="GiveCampModel.CharityProject">
+              <MappingFragment StoreEntitySet="CharityProjects">
+                <ScalarProperty Name="Votes" ColumnName="Votes" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -189,6 +264,8 @@
         <EntityTypeShape EntityType="GiveCampModel.Page" Width="1.5" PointX="0.75" PointY="0.75" Height="3.7109993489583326" IsExpanded="true" />
         <EntityTypeShape EntityType="GiveCampModel.Post" Width="1.5" PointX="3.375" PointY="0.75" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="GiveCampModel.Sponsor" Width="1.5" PointX="5.75" PointY="0.875" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="GiveCampModel.Charity" Width="1.5" PointX="3.75" PointY="4" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="GiveCampModel.CharityProject" Width="1.5" PointX="0.75" PointY="5" Height="2.1725878906249996" />
       </Diagram>
     </Diagrams>
   </Designer>

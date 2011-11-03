@@ -20,5 +20,11 @@ namespace GiveCampStarterSite.Controllers
 
             return View(model);
         }
+
+        [Authorize]
+        public ActionResult Register()
+        {
+            return this.View();
+        }
     }
 }
