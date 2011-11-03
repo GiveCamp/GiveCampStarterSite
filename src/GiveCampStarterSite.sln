@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiveCampStarterSite", "GiveCampStarterSite\GiveCampStarterSite.csproj", "{97A31D6D-6045-4D91-979A-FB5923F18F15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiveCampStarterSite.Mvc3", "GiveCampStarterSite.Mvc3\GiveCampStarterSite.Mvc3.csproj", "{97A31D6D-6045-4D91-979A-FB5923F18F15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

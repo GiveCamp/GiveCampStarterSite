@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring", "Refactoring\Refactoring.csproj", "{51BA6C1D-A0A8-4426-B6D6-AC9BD47B308A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring.Test", "Refactoring.Test\Refactoring.Test.csproj", "{F0B1FC78-87AD-4855-A64E-7274F274B35C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0B04224D-87FF-440D-83C2-E551471DE2D2}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Refactoring.vsmdi = Refactoring.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Refactoring.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51BA6C1D-A0A8-4426-B6D6-AC9BD47B308A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51BA6C1D-A0A8-4426-B6D6-AC9BD47B308A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51BA6C1D-A0A8-4426-B6D6-AC9BD47B308A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51BA6C1D-A0A8-4426-B6D6-AC9BD47B308A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B1FC78-87AD-4855-A64E-7274F274B35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B1FC78-87AD-4855-A64E-7274F274B35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B1FC78-87AD-4855-A64E-7274F274B35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B1FC78-87AD-4855-A64E-7274F274B35C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

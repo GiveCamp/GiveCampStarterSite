@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GiveCampModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="GiveCampModelStoreContainer">
+          <EntitySet Name="Page" EntityType="GiveCampModel.Store.Page" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="GiveCampModel.Store.Post" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Author" Type="nvarchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Parent" Type="int" />
+          <Property Name="HasParentPage" Type="bit" />
+          <Property Name="HasChildPages" Type="bit" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsAuthenticated" Type="bit" />
+          <Property Name="IsPublished" Type="bit" />
+          <Property Name="IsFrontPage" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="PublishDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Author" Type="nvarchar" MaxLength="100" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="100" />
+          <Property Name="Keywords" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="PublishDate" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GiveCampModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GiveCampEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pages" EntityType="GiveCampModel.Page" />
+          <EntitySet Name="Posts" EntityType="GiveCampModel.Post" />
+        </EntityContainer>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Author" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="HasParentPage" Type="Boolean" />
+          <Property Name="HasChildPages" Type="Boolean" />
+          <Property Name="Slug" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="IsAuthenticated" Type="Boolean" />
+          <Property Name="IsPublished" Type="Boolean" />
+          <Property Name="IsFrontPage" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" />
+          <Property Name="PublishDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Slug" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Keywords" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreateDate" />
+          <Property Type="DateTime" Name="PublishDate" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GiveCampModelStoreContainer" CdmEntityContainer="GiveCampEntities">
+          <EntitySetMapping Name="Pages"><EntityTypeMapping TypeName="GiveCampModel.Page"><MappingFragment StoreEntitySet="Page">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Author" ColumnName="Author" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Content" ColumnName="Content" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Parent" ColumnName="Parent" />
+            <ScalarProperty Name="HasParentPage" ColumnName="HasParentPage" />
+            <ScalarProperty Name="HasChildPages" ColumnName="HasChildPages" />
+            <ScalarProperty Name="Slug" ColumnName="Slug" />
+            <ScalarProperty Name="IsAuthenticated" ColumnName="IsAuthenticated" />
+            <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+            <ScalarProperty Name="IsFrontPage" ColumnName="IsFrontPage" />
+            <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+            <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="GiveCampModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="GiveCampData">
+        <EntityTypeShape EntityType="GiveCampModel.Page" Width="1.5" PointX="0.75" PointY="0.75" Height="3.7109993489583326" IsExpanded="true" />
+        <EntityTypeShape EntityType="GiveCampModel.Post" Width="1.5" PointX="3.375" PointY="0.75" Height="2.7494921874999996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

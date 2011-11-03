@@ -1,8 +1,19 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model GiveCampStarterSite.ViewModel.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Nwa GiveCamp: Home";
 }
 
-<h2>@ViewBag.Message</h2>
 <p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+    @Html.Raw(Model.PageContent.Content)
 </p>
+
+@foreach (var post in Model.Posts)
+{
+    <div>
+        <h1 style="text-decoration: underline; font-weight: bold;">@post.Title</h1>
+        <p>
+            @Html.Raw(post.Content)
+        </p>
+    </div>
+}

@@ -9,7 +9,7 @@
     <div class="page">
         <div id="header">
             <div id="title">
-                <h1>My MVC Application</h1>
+                <h1>Northwest Arkansas GiveCamp 2012</h1>
             </div>
             <div id="logindisplay">
                 @Html.Partial("_LogOnPartial")
@@ -17,6 +17,9 @@
             <div id="menucontainer">
                 <ul id="menu">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Volunteer", "Index", "Volunteer")</li>
+                    <li>@Html.ActionLink("Charity", "Index", "Charity")</li>
+                    <li>@Html.ActionLink("Sponsor", "Index", "Sponsor")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
             </div>

@@ -1,32 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace GiveCampStarterSite.Controllers
 {
-    using GiveCampStarterSite.ServiceContracts;
+    using System;
+    using System.Linq;
+
+    using GiveCampStarterSite.Models;
+    using GiveCampStarterSite.ViewModel;
 
     public class HomeController : Controller
     {
-        private IMessageService MessageService { get; set; }
-
-        public HomeController(IMessageService messageService)
-        {
-            MessageService = messageService;
-        }
+        private readonly GiveCampEntities context = new GiveCampEntities();
 
         public ActionResult Index()
         {
-            ViewBag.Message = MessageService.HomePageMessage;
+            var model = new HomeIndexViewModel();
+            model.PageContent = context.Pages.Where(x => x.Title == "Home").FirstOrDefault();
+            model.Posts = context.Posts
+                    .Where(x => x.PublishDate >= DateTime.Today)
+                    .OrderByDescending(x => x.PublishDate);
 
-            return View();
+            return View(model);
         }
 
         public ActionResult About()
         {
-            return View();
+            var model = new HomeAboutViewModel();
+            model.PageContent = context.Pages.Where(x => x.Title == "About").FirstOrDefault();
+
+            return View(model);
         }
     }
 }
