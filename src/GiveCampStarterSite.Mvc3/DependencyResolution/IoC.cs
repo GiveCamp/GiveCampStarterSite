@@ -1,5 +1,8 @@
 using StructureMap;
 namespace GiveCampStarterSite {
+    using GiveCampStarterSite.Controllers;
+    using GiveCampStarterSite.Data;
+
     public static class IoC {
         public static IContainer Initialize() {
             ObjectFactory.Initialize(x =>
@@ -9,7 +12,8 @@ namespace GiveCampStarterSite {
                                         scan.TheCallingAssembly();
                                         scan.WithDefaultConventions();
                                     });
-            //                x.For<IExample>().Use<Example>();
+                            
+                            x.For<IRepository>().Use<EntityFrameworkRepository>();
                         });
             return ObjectFactory.Container;
         }

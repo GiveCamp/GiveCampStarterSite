@@ -1,0 +1,13 @@
+﻿@model GiveCampStarterSite.Models.Page
+
+<div id="pageContent">
+    <p>
+    @Html.Raw(Model.Content)
+    </p>
+
+    @if (Roles.IsUserInRole("Administrator"))
+    {
+        @Html.ActionLink("Edit", "Edit", "Page", new {id = Model.Id}, null)
+    } 
+</div>
+

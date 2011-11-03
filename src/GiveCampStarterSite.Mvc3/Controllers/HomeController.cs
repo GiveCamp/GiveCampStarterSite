@@ -5,20 +5,25 @@ namespace GiveCampStarterSite.Controllers
     using System;
     using System.Linq;
 
+    using GiveCampStarterSite.Data;
     using GiveCampStarterSite.Models;
     using GiveCampStarterSite.ViewModel;
 
     public class HomeController : Controller
     {
-        private readonly GiveCampEntities context = new GiveCampEntities();
+        private readonly IRepository repository;
+
+        public HomeController(IRepository repository)
+        {
+            this.repository = repository;
+        }
 
         public ActionResult Index()
         {
             var model = new HomeIndexViewModel();
-            model.PageContent = context.Pages.Where(x => x.Title == "Home").FirstOrDefault();
-            model.Posts = context.Posts
-                    .Where(x => x.PublishDate >= DateTime.Today)
-                    .OrderByDescending(x => x.PublishDate);
+            model.PageContent = repository.Get<Page>(x => x.Title == "Home");
+            model.Posts =
+                repository.Find<Post>(x => x.PublishDate >= DateTime.Today).OrderByDescending(x => x.PublishDate);
 
             return View(model);
         }
@@ -26,8 +31,8 @@ namespace GiveCampStarterSite.Controllers
         public ActionResult About()
         {
             var model = new HomeAboutViewModel();
-            model.PageContent = context.Pages.Where(x => x.Title == "About").FirstOrDefault();
-
+            model.PageContent = repository.Get<Page>(x => x.Title == "About");
+            
             return View(model);
         }
     }

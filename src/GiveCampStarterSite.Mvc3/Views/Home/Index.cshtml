@@ -4,14 +4,13 @@
     ViewBag.Title = "Nwa GiveCamp: Home";
 }
 
-<p>
-    @Html.Raw(Model.PageContent.Content)
-</p>
+@Html.DisplayFor(x => x.PageContent)
 
 @foreach (var post in Model.Posts)
 {
     <div>
         <h1 style="text-decoration: underline; font-weight: bold;">@post.Title</h1>
+
         <p>
             @Html.Raw(post.Content)
         </p>

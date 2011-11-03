@@ -96,6 +96,22 @@ namespace GiveCampStarterSite.Models
             }
         }
         private ObjectSet<Post> _Posts;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Sponsor> Sponsors
+        {
+            get
+            {
+                if ((_Sponsors == null))
+                {
+                    _Sponsors = base.CreateObjectSet<Sponsor>("Sponsors");
+                }
+                return _Sponsors;
+            }
+        }
+        private ObjectSet<Sponsor> _Sponsors;
 
         #endregion
         #region AddTo Methods
@@ -114,6 +130,14 @@ namespace GiveCampStarterSite.Models
         public void AddToPosts(Post post)
         {
             base.AddObject("Posts", post);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Sponsors EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSponsors(Sponsor sponsor)
+        {
+            base.AddObject("Sponsors", sponsor);
         }
 
         #endregion
@@ -733,6 +757,255 @@ namespace GiveCampStarterSite.Models
         private Nullable<global::System.DateTime> _PublishDate;
         partial void OnPublishDateChanging(Nullable<global::System.DateTime> value);
         partial void OnPublishDateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="GiveCampModel", Name="Sponsor")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sponsor : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Sponsor object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Sponsor CreateSponsor(global::System.Int32 id, global::System.Boolean isActive)
+        {
+            Sponsor sponsor = new Sponsor();
+            sponsor.Id = id;
+            sponsor.IsActive = isActive;
+            return sponsor;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Website
+        {
+            get
+            {
+                return _Website;
+            }
+            set
+            {
+                OnWebsiteChanging(value);
+                ReportPropertyChanging("Website");
+                _Website = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Website");
+                OnWebsiteChanged();
+            }
+        }
+        private global::System.String _Website;
+        partial void OnWebsiteChanging(global::System.String value);
+        partial void OnWebsiteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactName
+        {
+            get
+            {
+                return _ContactName;
+            }
+            set
+            {
+                OnContactNameChanging(value);
+                ReportPropertyChanging("ContactName");
+                _ContactName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ContactName");
+                OnContactNameChanged();
+            }
+        }
+        private global::System.String _ContactName;
+        partial void OnContactNameChanging(global::System.String value);
+        partial void OnContactNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactEmail
+        {
+            get
+            {
+                return _ContactEmail;
+            }
+            set
+            {
+                OnContactEmailChanging(value);
+                ReportPropertyChanging("ContactEmail");
+                _ContactEmail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ContactEmail");
+                OnContactEmailChanged();
+            }
+        }
+        private global::System.String _ContactEmail;
+        partial void OnContactEmailChanging(global::System.String value);
+        partial void OnContactEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SponsorshipLevel
+        {
+            get
+            {
+                return _SponsorshipLevel;
+            }
+            set
+            {
+                OnSponsorshipLevelChanging(value);
+                ReportPropertyChanging("SponsorshipLevel");
+                _SponsorshipLevel = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SponsorshipLevel");
+                OnSponsorshipLevelChanged();
+            }
+        }
+        private global::System.String _SponsorshipLevel;
+        partial void OnSponsorshipLevelChanging(global::System.String value);
+        partial void OnSponsorshipLevelChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LogoUrl
+        {
+            get
+            {
+                return _LogoUrl;
+            }
+            set
+            {
+                OnLogoUrlChanging(value);
+                ReportPropertyChanging("LogoUrl");
+                _LogoUrl = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LogoUrl");
+                OnLogoUrlChanged();
+            }
+        }
+        private global::System.String _LogoUrl;
+        partial void OnLogoUrlChanging(global::System.String value);
+        partial void OnLogoUrlChanged();
 
         #endregion
     

@@ -8,6 +8,7 @@
         <EntityContainer Name="GiveCampModelStoreContainer">
           <EntitySet Name="Page" EntityType="GiveCampModel.Store.Page" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="GiveCampModel.Store.Post" store:Type="Tables" />
+          <EntitySet Name="Sponsor" EntityType="GiveCampModel.Store.Sponsor" store:Type="Tables" />
         </EntityContainer>
         <EntityType Name="Page">
           <Key>
@@ -42,6 +43,20 @@
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="PublishDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Website" Type="nvarchar" MaxLength="200" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="SponsorshipLevel" Type="nvarchar" MaxLength="100" />
+          <Property Name="LogoUrl" Type="nvarchar" MaxLength="200" />
+        </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -49,6 +64,7 @@
         <EntityContainer Name="GiveCampEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Pages" EntityType="GiveCampModel.Page" />
           <EntitySet Name="Posts" EntityType="GiveCampModel.Post" />
+          <EntitySet Name="Sponsors" EntityType="GiveCampModel.Sponsor" />
         </EntityContainer>
         <EntityType Name="Page">
           <Key>
@@ -82,6 +98,20 @@
           <Property Type="String" Name="Keywords" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="CreateDate" />
           <Property Type="DateTime" Name="PublishDate" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Website" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactEmail" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SponsorshipLevel" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LogoUrl" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -120,6 +150,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Sponsors">
+            <EntityTypeMapping TypeName="GiveCampModel.Sponsor">
+              <MappingFragment StoreEntitySet="Sponsor">
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+                <ScalarProperty Name="SponsorshipLevel" ColumnName="SponsorshipLevel" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -143,6 +188,7 @@
       <Diagram Name="GiveCampData">
         <EntityTypeShape EntityType="GiveCampModel.Page" Width="1.5" PointX="0.75" PointY="0.75" Height="3.7109993489583326" IsExpanded="true" />
         <EntityTypeShape EntityType="GiveCampModel.Post" Width="1.5" PointX="3.375" PointY="0.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="GiveCampModel.Sponsor" Width="1.5" PointX="5.75" PointY="0.875" Height="2.7494921874999996" />
       </Diagram>
     </Diagrams>
   </Designer>
