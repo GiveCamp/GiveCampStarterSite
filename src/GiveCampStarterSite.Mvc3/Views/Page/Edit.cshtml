@@ -4,35 +4,34 @@
 }
 <h2>
     Edit Page</h2>
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
+<div class="post" style="width: 890px;">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
 		
-    <fieldset>
-        @Html.HiddenFor(model => model.Referrer)
-        @Html.HiddenFor(model => model.Page.Id)
-        <div class="editor-field">
-            You are currently editing the <b>@Model.Page.Title</b> page.
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Page.Content)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Page.Content)
-            @Html.ValidationMessageFor(model => model.Page.Content)
-        </div>
-        <div class="wmd-preview">
-        </div>
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
+        <fieldset>
+            @Html.HiddenFor(model => model.Referrer)
+            @Html.HiddenFor(model => model.Page.Id)
+            <div class="editor-field">
+                You are currently editing the <b>@Model.Page.Title</b> page.<br />
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Page.Content)
+                @Html.ValidationMessageFor(model => model.Page.Content)
+            </div>
+            <div class="wmd-preview">
+            </div>
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+</div>
 <script type="text/javascript">
     tinyMCE.init({
         // General options
         mode: "textareas",
+        width: "880",
         theme: "advanced",
         plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
 

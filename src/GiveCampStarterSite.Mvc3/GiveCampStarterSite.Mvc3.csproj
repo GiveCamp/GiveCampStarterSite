@@ -127,6 +127,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\GiveCamp.sdf" />
+    <Content Include="Content\GiveCampTheme\Images\bg01.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\bg02.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\bg04.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\bg_button_a.gif" />
+    <Content Include="Content\GiveCampTheme\Images\bg_button_span.gif" />
+    <Content Include="Content\GiveCampTheme\Images\givecamp.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\GiveCamp_FINAL_small.png" />
+    <Content Include="Content\GiveCampTheme\Images\img01.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\img02.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img03.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img04.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img05.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img06.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img06.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\img07.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img08.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img09.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img10.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img11.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img12.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img13.gif" />
+    <Content Include="Content\GiveCampTheme\Images\img14.gif" />
+    <Content Include="Content\GiveCampTheme\Images\rss.gif" />
+    <Content Include="Content\GiveCampTheme\Images\spacer.gif" />
+    <Content Include="Content\GiveCampTheme\Images\SponsorLogos\ICCLogo.png" />
+    <Content Include="Content\GiveCampTheme\Images\SponsorLogos\microsoft.jpg" />
+    <Content Include="Content\GiveCampTheme\Images\SponsorLogos\QuickSolutions.jpg" />
+    <Content Include="Content\GiveCampTheme\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

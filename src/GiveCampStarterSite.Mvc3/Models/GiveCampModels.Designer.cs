@@ -16,12 +16,6 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-#region EDM Relationship Metadata
-
-[assembly: EdmRelationshipAttribute("GiveCampModel", "UserCharity", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GiveCampStarterSite.Models.User), "Charity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GiveCampStarterSite.Models.Charity))]
-[assembly: EdmRelationshipAttribute("GiveCampModel", "CharityCharityProject", "Charity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GiveCampStarterSite.Models.Charity), "CharityProject", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GiveCampStarterSite.Models.CharityProject), true)]
-
-#endregion
 
 namespace GiveCampStarterSite.Models
 {
@@ -497,69 +491,6 @@ namespace GiveCampStarterSite.Models
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("GiveCampModel", "UserCharity", "User")]
-        public User User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("GiveCampModel.UserCharity", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("GiveCampModel.UserCharity", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> UserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("GiveCampModel.UserCharity", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("GiveCampModel.UserCharity", "User", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("GiveCampModel", "CharityCharityProject", "CharityProject")]
-        public EntityCollection<CharityProject> CharityProjects
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CharityProject>("GiveCampModel.CharityCharityProject", "CharityProject");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CharityProject>("GiveCampModel.CharityCharityProject", "CharityProject", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -761,47 +692,6 @@ namespace GiveCampStarterSite.Models
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("GiveCampModel", "CharityCharityProject", "Charity")]
-        public Charity Charity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Charity>("GiveCampModel.CharityCharityProject", "Charity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Charity>("GiveCampModel.CharityCharityProject", "Charity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Charity> CharityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Charity>("GiveCampModel.CharityCharityProject", "Charity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Charity>("GiveCampModel.CharityCharityProject", "Charity", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -1824,47 +1714,6 @@ namespace GiveCampStarterSite.Models
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("GiveCampModel", "UserCharity", "Charity")]
-        public Charity Charity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Charity>("GiveCampModel.UserCharity", "Charity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Charity>("GiveCampModel.UserCharity", "Charity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Charity> CharityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Charity>("GiveCampModel.UserCharity", "Charity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Charity>("GiveCampModel.UserCharity", "Charity", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>

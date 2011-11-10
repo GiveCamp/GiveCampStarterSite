@@ -134,14 +134,6 @@
           <EntitySet Name="Users" EntityType="GiveCampModel.User" />
           <EntitySet Name="Volunteers" EntityType="GiveCampModel.Volunteer" />
           <EntitySet Name="Charities" EntityType="GiveCampModel.Charity" />
-          <AssociationSet Name="UserCharity" Association="GiveCampModel.UserCharity">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Charity" EntitySet="Charities" />
-          </AssociationSet>
-          <AssociationSet Name="CharityCharityProject" Association="GiveCampModel.CharityCharityProject">
-            <End Role="Charity" EntitySet="Charities" />
-            <End Role="CharityProject" EntitySet="CharityProjects" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Page">
           <Key>
@@ -201,7 +193,6 @@
           <Property Type="DateTime" Name="DateCreated" />
           <Property Type="Binary" Name="Votes" MaxLength="Max" FixedLength="false" />
           <Property Type="Int32" Name="CharityId" Nullable="false" />
-          <NavigationProperty Name="Charity" Relationship="GiveCampModel.CharityCharityProject" FromRole="CharityProject" ToRole="Charity" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -212,7 +203,6 @@
           <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
           <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
-          <NavigationProperty Name="Charity" Relationship="GiveCampModel.UserCharity" FromRole="User" ToRole="Charity" />
         </EntityType>
         <EntityType Name="Volunteer">
           <Key>
@@ -252,25 +242,7 @@
           <Property Type="String" Name="Website" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="UserId" />
           <Property Type="String" Name="ContactEmail" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="GiveCampModel.UserCharity" FromRole="Charity" ToRole="User" />
-          <NavigationProperty Name="CharityProjects" Relationship="GiveCampModel.CharityCharityProject" FromRole="Charity" ToRole="CharityProject" />
         </EntityType>
-        <Association Name="UserCharity">
-          <End Type="GiveCampModel.User" Role="User" Multiplicity="1" />
-          <End Type="GiveCampModel.Charity" Role="Charity" Multiplicity="1" />
-        </Association>
-        <Association Name="CharityCharityProject">
-          <End Type="GiveCampModel.Charity" Role="Charity" Multiplicity="1" />
-          <End Type="GiveCampModel.CharityProject" Role="CharityProject" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Charity">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CharityProject">
-              <PropertyRef Name="CharityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -388,11 +360,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="UserCharity" TypeName="GiveCampModel.UserCharity" StoreEntitySet="Charities">
-            <EndProperty Name="User">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -421,14 +388,6 @@
         <EntityTypeShape EntityType="GiveCampModel.User" Width="1.5" PointX="0.875" PointY="5.75" Height="1.9802864583333317" />
         <EntityTypeShape EntityType="GiveCampModel.Volunteer" Width="1.5" PointX="4.625" PointY="8.5" Height="4.8648079427083335" />
         <EntityTypeShape EntityType="GiveCampModel.Charity" Width="1.5" PointX="4.25" PointY="4.75" Height="2.7494921874999996" />
-        <AssociationConnector Association="GiveCampModel.UserCharity">
-          <ConnectorPoint PointX="2.375" PointY="6.7208968098958328" />
-          <ConnectorPoint PointX="4.25" PointY="6.7208968098958328" />
-        </AssociationConnector>
-        <AssociationConnector Association="GiveCampModel.CharityCharityProject">
-          <ConnectorPoint PointX="5.75" PointY="6.5285953776041659" />
-          <ConnectorPoint PointX="7.875" PointY="6.5285953776041659" />
-        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

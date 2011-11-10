@@ -1,18 +1,42 @@
 ﻿@model GiveCampStarterSite.ViewModel.HomeIndexViewModel
-
 @{
     ViewBag.Title = "Nwa GiveCamp: Home";
 }
+
+<h1 class="pagetitle">
+    GiveCamp 2010</h1>
 
 @Html.DisplayFor(x => x.PageContent)
 
 @foreach (var post in Model.Posts)
 {
-    <div>
-        <h1 style="text-decoration: underline; font-weight: bold;">@post.Title</h1>
-
-        <p>
+    <div class="post">
+        <h2 class="title">
+            @post.Title</h2>
+        <div class="entry">
             @Html.Raw(post.Content)
+        </div>
+        <p class="meta">
         </p>
     </div>
 }
+
+@section SideBar {
+    <ul>
+        <li>
+            <h2>
+                GiveCamp Resources</h2>
+            <ul>
+                <li><a href="http://www.givecamp.org" target="_blank">GiveCamp Main Site</a></li>
+                <li><a href="http://www.lansinggivecamp.org/" target="_blank">Lansing GiveCamp</a></li>
+                <li><a href="http://www.michigangivecamp.org/" target="_blank">Michigan GiveCamp</a></li>
+            </ul>
+        </li>
+    </ul>
+}
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $("#navHome").addClass("active");
+    });
+</script>
