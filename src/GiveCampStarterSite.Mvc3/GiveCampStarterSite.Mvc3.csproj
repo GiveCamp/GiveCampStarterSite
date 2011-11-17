@@ -106,6 +106,7 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\SmDependencyResolver.cs" />
+    <Compile Include="SiteSettings.cs" />
     <Compile Include="SmControllerFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

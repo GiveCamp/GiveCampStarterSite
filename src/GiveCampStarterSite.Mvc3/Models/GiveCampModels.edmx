@@ -8,6 +8,7 @@
         <EntityContainer Name="GiveCampModelStoreContainer">
           <EntitySet Name="Charities" EntityType="GiveCampModel.Store.Charities" store:Type="Tables" />
           <EntitySet Name="CharityProjects" EntityType="GiveCampModel.Store.CharityProjects" store:Type="Tables" />
+          <EntitySet Name="EventSettings" EntityType="GiveCampModel.Store.EventSettings" store:Type="Tables" />
           <EntitySet Name="Page" EntityType="GiveCampModel.Store.Page" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="GiveCampModel.Store.Post" store:Type="Tables" />
           <EntitySet Name="Sponsor" EntityType="GiveCampModel.Store.Sponsor" store:Type="Tables" />
@@ -39,6 +40,45 @@
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="Votes" Type="image" />
           <Property Name="CharityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventSettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="300" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CharityProjectSubmissionStartDate" Type="datetime" />
+          <Property Name="CharityProjectSubmissonEndDate" Type="datetime" />
+          <Property Name="VolunteerRegistrationStartDate" Type="datetime" />
+          <Property Name="VolunteerRegistrationEndDate" Type="datetime" />
+          <Property Name="Location" Type="nvarchar" MaxLength="200" />
+          <Property Name="LocationAddress1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LocationAddress2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LocationCity" Type="nvarchar" MaxLength="100" />
+          <Property Name="LocationState" Type="nvarchar" MaxLength="100" />
+          <Property Name="LocationPostalCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="200" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="TwitterHandle" Type="nvarchar" MaxLength="100" />
+          <Property Name="TwitterFilterDate" Type="datetime" />
+          <Property Name="TwitterDisplayCount" Type="int" />
+          <Property Name="LogoUrl" Type="nvarchar" MaxLength="500" />
+          <Property Name="EmailEnabled" Type="bit" />
+          <Property Name="EmailFromAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="EmailHost" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailHostPort" Type="int" />
+          <Property Name="EmailUserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailPassword" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailEnableSSL" Type="bit" />
+          <Property Name="EmailSubjectPrefix" Type="nvarchar" MaxLength="10" />
+          <Property Name="Instance" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsCurrentInstance" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Page">
           <Key>
@@ -134,6 +174,7 @@
           <EntitySet Name="Users" EntityType="GiveCampModel.User" />
           <EntitySet Name="Volunteers" EntityType="GiveCampModel.Volunteer" />
           <EntitySet Name="Charities" EntityType="GiveCampModel.Charity" />
+          <EntitySet Name="EventSettings" EntityType="GiveCampModel.EventSetting" />
         </EntityContainer>
         <EntityType Name="Page">
           <Key>
@@ -242,6 +283,45 @@
           <Property Type="String" Name="Website" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="UserId" />
           <Property Type="String" Name="ContactEmail" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EventSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SubTitle" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Theme" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="DateTime" Name="CharityProjectSubmissionStartDate" />
+          <Property Type="DateTime" Name="CharityProjectSubmissonEndDate" />
+          <Property Type="DateTime" Name="VolunteerRegistrationStartDate" />
+          <Property Type="DateTime" Name="VolunteerRegistrationEndDate" />
+          <Property Type="String" Name="Location" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocationAddress1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocationAddress2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocationCity" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocationState" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LocationPostalCode" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactEmail" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactPhone" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TwitterHandle" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TwitterFilterDate" />
+          <Property Type="Int32" Name="TwitterDisplayCount" />
+          <Property Type="String" Name="LogoUrl" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="EmailEnabled" />
+          <Property Type="String" Name="EmailFromAddress" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailHost" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EmailHostPort" />
+          <Property Type="String" Name="EmailUserName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailPassword" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="EmailEnableSSL" />
+          <Property Type="String" Name="EmailSubjectPrefix" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Instance" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsCurrentInstance" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -360,6 +440,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EventSettings">
+            <EntityTypeMapping TypeName="GiveCampModel.EventSetting">
+              <MappingFragment StoreEntitySet="EventSettings">
+                <ScalarProperty Name="IsCurrentInstance" ColumnName="IsCurrentInstance" />
+                <ScalarProperty Name="Instance" ColumnName="Instance" />
+                <ScalarProperty Name="EmailSubjectPrefix" ColumnName="EmailSubjectPrefix" />
+                <ScalarProperty Name="EmailEnableSSL" ColumnName="EmailEnableSSL" />
+                <ScalarProperty Name="EmailPassword" ColumnName="EmailPassword" />
+                <ScalarProperty Name="EmailUserName" ColumnName="EmailUserName" />
+                <ScalarProperty Name="EmailHostPort" ColumnName="EmailHostPort" />
+                <ScalarProperty Name="EmailHost" ColumnName="EmailHost" />
+                <ScalarProperty Name="EmailFromAddress" ColumnName="EmailFromAddress" />
+                <ScalarProperty Name="EmailEnabled" ColumnName="EmailEnabled" />
+                <ScalarProperty Name="LogoUrl" ColumnName="LogoUrl" />
+                <ScalarProperty Name="TwitterDisplayCount" ColumnName="TwitterDisplayCount" />
+                <ScalarProperty Name="TwitterFilterDate" ColumnName="TwitterFilterDate" />
+                <ScalarProperty Name="TwitterHandle" ColumnName="TwitterHandle" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="LocationPostalCode" ColumnName="LocationPostalCode" />
+                <ScalarProperty Name="LocationState" ColumnName="LocationState" />
+                <ScalarProperty Name="LocationCity" ColumnName="LocationCity" />
+                <ScalarProperty Name="LocationAddress2" ColumnName="LocationAddress2" />
+                <ScalarProperty Name="LocationAddress1" ColumnName="LocationAddress1" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="VolunteerRegistrationEndDate" ColumnName="VolunteerRegistrationEndDate" />
+                <ScalarProperty Name="VolunteerRegistrationStartDate" ColumnName="VolunteerRegistrationStartDate" />
+                <ScalarProperty Name="CharityProjectSubmissonEndDate" ColumnName="CharityProjectSubmissonEndDate" />
+                <ScalarProperty Name="CharityProjectSubmissionStartDate" ColumnName="CharityProjectSubmissionStartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -388,6 +508,7 @@
         <EntityTypeShape EntityType="GiveCampModel.User" Width="1.5" PointX="0.875" PointY="5.75" Height="1.9802864583333317" />
         <EntityTypeShape EntityType="GiveCampModel.Volunteer" Width="1.5" PointX="4.625" PointY="8.5" Height="4.8648079427083335" />
         <EntityTypeShape EntityType="GiveCampModel.Charity" Width="1.5" PointX="4.25" PointY="4.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="GiveCampModel.EventSetting" Width="2.625" PointX="0.75" PointY="8.75" Height="7.5570279947916674" />
       </Diagram>
     </Diagrams>
   </Designer>

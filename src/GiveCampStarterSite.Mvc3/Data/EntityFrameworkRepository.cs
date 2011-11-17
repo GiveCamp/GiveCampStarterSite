@@ -22,11 +22,8 @@ namespace GiveCampStarterSite.Data
 
         public T Get<T>(int id) where T : IEntityWithKey
         {
-            IEnumerable<KeyValuePair<string, object>> entityKeyValues = new[] { new KeyValuePair<string, object>("Id", id) };
+            return context.CreateObjectSet<T>().SingleOrDefault(x => x.Id == id);
 
-            var key = new EntityKey(context.GetEntitySet<T>().Name, entityKeyValues);
-
-            return (T)context.GetObjectByKey(key);
         }
 
         public T Get<T>(Expression<Func<T, bool>> predicate) where T : IEntityWithKey
