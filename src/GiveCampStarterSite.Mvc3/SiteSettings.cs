@@ -1,5 +1,11 @@
 namespace GiveCampStarterSite
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
     using GiveCampStarterSite.Models;
 
     public class SiteSettings
@@ -28,6 +34,23 @@ namespace GiveCampStarterSite
             }
         }
 
+        public static SelectList AvailableThemes()
+        {
+            var themePath = HttpContext.Current.Server.MapPath("~/Themes");
+
+            var items = new Dictionary<string, string>();
+
+            foreach (var directory in Directory.GetDirectories(themePath))
+            {
+                var di = new DirectoryInfo(directory);
+                items.Add(di.Name, di.Name);
+            }
+
+            items.Add("Default", "Default");
+
+            return new SelectList(items, "Key", "Value");
+        }
+
         public static void SaveSettings(EventSetting settings)
         {
             lock (mutex)
@@ -39,7 +62,8 @@ namespace GiveCampStarterSite
 
         private static EventSetting LoadSettings()
         {
-            return Repository.Get<EventSetting>(DefaultId) ?? Repository.Save(new EventSetting());
+            return Repository.Get<EventSetting>(x => x.Id == DefaultId) ?? Repository.Save(new EventSetting());
         }    
+
     }
 }

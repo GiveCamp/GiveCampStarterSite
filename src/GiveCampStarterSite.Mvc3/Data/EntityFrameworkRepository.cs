@@ -20,12 +20,6 @@ namespace GiveCampStarterSite.Data
             context = new GiveCampEntities();
         }
 
-        public T Get<T>(int id) where T : IEntityWithKey
-        {
-            return context.CreateObjectSet<T>().SingleOrDefault(x => x.Id == id);
-
-        }
-
         public T Get<T>(Expression<Func<T, bool>> predicate) where T : IEntityWithKey
         {
             return context.CreateQuery<T>("[" + context.GetEntitySet<T>().Name + "]")

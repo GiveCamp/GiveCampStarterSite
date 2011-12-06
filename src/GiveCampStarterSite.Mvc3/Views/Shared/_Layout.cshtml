@@ -1,21 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@GiveCampStarterSite.SiteSettings.Instance.EmailSubjectPrefix: @ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/" + GiveCampStarterSite.SiteSettings.Instance.Theme + "/Site.css")" rel="stylesheet" type="text/css" />
+    <title>@GiveCampStarterSite.SiteSettings.Instance.EmailSubjectPrefix: @ViewBag.Title
+    </title>
+    <link href="@Url.Content("~/Themes/" + GiveCampStarterSite.SiteSettings.Instance.Theme + "/Site.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/tinymce.3.4.5/tiny_mce.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/tinymce.3.4.5/jquery.tinymce.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/tinymce.3.4.5/jquery-ui-1.8.16.min.js")" type="text/javascript"></script>
 </head>
 <body>
     <!-- start new header -->
     <div id="header">
         <div id="logo">
             <a href="/">
-                <img src="/Content/GiveCampTheme/Images/GiveCamp_FINAL_small.png" title="GiveCamp"
+                <img src="/Content/GiveCamp_FINAL_small.png" title="GiveCamp"
                     alt="GiveCamp.org" /></a>
             <p>
-                Northwest Arkansas</p>
+                @GiveCampStarterSite.SiteSettings.Instance.SubTitle</p>
         </div>
         <div id="logindisplay">
             @Html.Partial("_LogOnPartial")
@@ -27,6 +29,10 @@
                 <li id="navCharity">@Html.ActionLink("Charity", "Index", "Charity")</li>
                 <li id="navSponsor">@Html.ActionLink("Sponsor", "Index", "Sponsor")</li>
                 <li id="navAbout">@Html.ActionLink("About", "About", "Home")</li>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <li id="navSettings">@Html.ActionLink("Settings", "Index", "Settings")</li>    
+                }
             </ul>
         </div>
     </div>

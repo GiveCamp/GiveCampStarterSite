@@ -7,7 +7,6 @@ namespace GiveCampStarterSite.Data
 
     public interface IRepository : IDisposable
     {
-        T Get<T>(int id) where T : IEntityWithKey;
         T Get<T>(Expression<Func<T, bool>> predicate) where T : IEntityWithKey;
 
         IQueryable<T> Find<T>() where T : IEntityWithKey;

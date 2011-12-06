@@ -22,6 +22,7 @@ namespace GiveCampStarterSite.Controllers
         {
             var model = new HomeIndexViewModel();
             model.PageContent = repository.Get<Page>(x => x.Title == "Home");
+
             model.Posts =
                 repository.Find<Post>(x => x.PublishDate >= DateTime.Today).OrderByDescending(x => x.PublishDate);
 

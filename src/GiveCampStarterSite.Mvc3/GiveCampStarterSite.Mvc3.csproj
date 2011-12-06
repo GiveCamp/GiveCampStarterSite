@@ -97,6 +97,7 @@
     <Compile Include="Controllers\CharityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="DataService.svc.cs">
@@ -122,40 +123,43 @@
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="ViewModel\CharityViewModels.cs" />
     <Compile Include="ViewModel\PageEditModels.cs" />
+    <Compile Include="ViewModel\SettingsViewModels.cs" />
     <Compile Include="ViewModel\SponsorViewModels.cs" />
     <Compile Include="ViewModel\HomeViewModels.cs" />
     <Compile Include="ViewModel\VolunteerViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\GiveCamp.sdf" />
-    <Content Include="Content\GiveCampTheme\Images\bg01.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\bg02.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\bg04.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\bg_button_a.gif" />
-    <Content Include="Content\GiveCampTheme\Images\bg_button_span.gif" />
-    <Content Include="Content\GiveCampTheme\Images\givecamp.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\GiveCamp_FINAL_small.png" />
-    <Content Include="Content\GiveCampTheme\Images\img01.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\img02.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img03.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img04.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img05.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img06.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img06.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\img07.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img08.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img09.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img10.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img11.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img12.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img13.gif" />
-    <Content Include="Content\GiveCampTheme\Images\img14.gif" />
-    <Content Include="Content\GiveCampTheme\Images\rss.gif" />
-    <Content Include="Content\GiveCampTheme\Images\spacer.gif" />
-    <Content Include="Content\GiveCampTheme\Images\SponsorLogos\ICCLogo.png" />
-    <Content Include="Content\GiveCampTheme\Images\SponsorLogos\microsoft.jpg" />
-    <Content Include="Content\GiveCampTheme\Images\SponsorLogos\QuickSolutions.jpg" />
-    <Content Include="Content\GiveCampTheme\Site.css" />
+    <Content Include="Content\calendar_icon.jpg" />
+    <Content Include="Content\GiveCamp_FINAL_small.png" />
+    <Content Include="Themes\GiveCampTheme\Images\bg01.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\bg02.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\bg04.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\bg_button_a.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\bg_button_span.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\givecamp.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\GiveCamp_FINAL_small.png" />
+    <Content Include="Themes\GiveCampTheme\Images\img01.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\img02.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img03.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img04.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img05.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img06.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img06.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\img07.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img08.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img09.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img10.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img11.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img12.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img13.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\img14.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\rss.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\spacer.gif" />
+    <Content Include="Themes\GiveCampTheme\Images\SponsorLogos\ICCLogo.png" />
+    <Content Include="Themes\GiveCampTheme\Images\SponsorLogos\microsoft.jpg" />
+    <Content Include="Themes\GiveCampTheme\Images\SponsorLogos\QuickSolutions.jpg" />
+    <Content Include="Themes\GiveCampTheme\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -539,6 +543,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settings\General.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
