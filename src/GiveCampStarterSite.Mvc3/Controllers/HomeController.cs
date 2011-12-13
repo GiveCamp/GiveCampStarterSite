@@ -11,9 +11,9 @@ namespace GiveCampStarterSite.Controllers
 
     public class HomeController : Controller
     {
-        private readonly IRepository repository;
+        private readonly ICachedRepository repository;
 
-        public HomeController(IRepository repository)
+        public HomeController(ICachedRepository repository)
         {
             this.repository = repository;
         }

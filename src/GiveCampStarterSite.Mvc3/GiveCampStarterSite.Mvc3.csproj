@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Elmah">
       <HintPath>..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
     </Reference>
@@ -103,10 +106,12 @@
     <Compile Include="DataService.svc.cs">
       <DependentUpon>DataService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Data\CachedRepository.cs" />
     <Compile Include="Data\EntityFrameworkRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\SmDependencyResolver.cs" />
+    <Compile Include="GiveCampSettings.cs" />
     <Compile Include="SiteSettings.cs" />
     <Compile Include="SmControllerFactory.cs" />
     <Compile Include="Global.asax.cs">

@@ -23,6 +23,8 @@ namespace GiveCampStarterSite.Controllers
 
             var siteSettings = SiteSettings.Instance;
 
+
+
             model.Title = siteSettings.Title;
             model.SubTitle = siteSettings.SubTitle;
             model.Theme = siteSettings.Theme;

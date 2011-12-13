@@ -15,4 +15,9 @@ namespace GiveCampStarterSite.Data
         T Save<T>(T entity) where T : IEntityWithKey;
         T Delete<T>(T entity) where T : IEntityWithKey;
     }
+
+    public interface ICachedRepository : IRepository
+    {
+        
+    }
 }

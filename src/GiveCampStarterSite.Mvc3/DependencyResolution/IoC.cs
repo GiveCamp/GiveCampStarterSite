@@ -14,6 +14,7 @@ namespace GiveCampStarterSite {
                                     });
                             
                             x.For<IRepository>().Use<EntityFrameworkRepository>();
+                            x.For<ICachedRepository>().Use<CachedRepository>();
                         });
             return ObjectFactory.Container;
         }
