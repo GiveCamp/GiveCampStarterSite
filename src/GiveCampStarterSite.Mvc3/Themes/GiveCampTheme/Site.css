@@ -10,6 +10,7 @@ body
     margin: 0;
     padding: 0;
     background: #FFFFFF url(images/bg01.jpg) repeat-x top left;
+    background-color: #F2F2F2;
     font-size: 13px;
     color: #7F7F7F;
 }
@@ -178,7 +179,13 @@ a:hover
 #page
 {
     width: 890px;
+    height: 100%;
     margin: 0 auto;
+    background-color: White;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 /* Content */
@@ -187,6 +194,15 @@ a:hover
 {
     float: left;
     width: 590px;
+    height: 100%;
+    padding-left: 10px;
+}
+
+#admin_content
+{
+    float: left;
+    width: 880px;
+    height: 100%;
 }
 
 .post
@@ -231,6 +247,8 @@ a:hover
 {
     float: right;
     width: 240px;
+    height: 100%;
+    padding-right: 10px;
 }
 
 #sidebar ul
@@ -341,7 +359,8 @@ a.button:active span
     clear: both;
     margin: 0px;
     height: 80px;
-    background: #F2F2F2 url(images/bg02.jpg) repeat-x left top;
+    background-color: #F2F2F2;
+    /* background: #F2F2F2 url(images/bg02.jpg) repeat-x left top; */
 }
 
 #footer p

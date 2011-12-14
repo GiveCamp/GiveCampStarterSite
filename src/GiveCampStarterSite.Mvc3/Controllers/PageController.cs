@@ -32,6 +32,7 @@ namespace GiveCampStarterSite.Controllers
         {
             var page = repository.Get<Page>(x => x.Id == model.Page.Id);
 
+            page.Title = model.Page.Title;
             page.Content = model.Page.Content;
 
             repository.Save(page);

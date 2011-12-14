@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace GiveCampStarterSite.Controllers
 {
+    using GiveCampStarterSite.Data;
     using GiveCampStarterSite.Models;
     using GiveCampStarterSite.ViewModel;
 
     public class CharityController : Controller
     {
-        private readonly GiveCampEntities context = new GiveCampEntities();
+
+        private readonly ICachedRepository repository;
+
+        public CharityController(ICachedRepository repository)
+        {
+            this.repository = repository;
+        }
 
         public ActionResult Index()
         {
             var model = new CharityIndexViewModel();
-            model.PageContent = context.Pages.Where(x => x.Title == "Charity").FirstOrDefault();
+            model.PageContent = repository.Get<Page>(x => x.Id == StaticPage.Charity);
 
             return View(model);
         }

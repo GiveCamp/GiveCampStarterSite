@@ -1,13 +1,16 @@
 ﻿@model GiveCampStarterSite.Models.Page
 <div id="pageContent">
     <div class="post">
-        @*<h2 class="title">@Model.Title</h2>*@
+        @if (Roles.IsUserInRole("Administrator"))
+        {
+            <div style="float: right; display: block;">
+            @Html.ActionLink("Edit", "Edit", "Page", new { id = Model.Id }, null)
+            </div>
+        }
+        <h1 class="pagetitle">@Model.Title</h1>
         <div class="entry">
             @Html.Raw(Model.Content)
         </div>
-        @if (Roles.IsUserInRole("Administrator"))
-        {
-            @Html.ActionLink("Edit", "Edit", "Page", new { id = Model.Id }, null)
-        }
+
     </div>
 </div>

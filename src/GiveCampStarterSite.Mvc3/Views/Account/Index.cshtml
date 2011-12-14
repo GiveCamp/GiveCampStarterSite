@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link href="../../Content/themes/base/jquery.ui.tabs.css" rel="stylesheet" type="text/css" />
+<link href="../../Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<script src="../../Scripts/jquery-ui-1.8.16.min.js" type="text/javascript"></script>
+
+<style>
+    .ui-widget-header
+    {
+        border-right-style: none; 
+        border-left-style: none; 
+        border-top-style: none; 
+        border-bottom-style: none; 
+        background-image: none; 
+        background-color: #F2F2F2;
+    }
+    
+    .ui-widget-content
+    {
+        border-top-style: none;
+        border-bottom-style :none;
+        border-left-style: none;
+        border-right-style: none;
+    }
+    
+    .ui-tabs
+    {
+        padding: 0 0 0 0;
+    }
+    
+    .ui-corner-all
+    {
+        border-right-style: none; 
+        border-left-style: none; 
+        border-top-style: none; 
+        border-bottom-style: none; 
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#tabs").tabs();
+    });
+</script>
+
+<div id="tabs" style="width: 100%;">
+    <ul>
+        <li><a href="#tabs-Account">Account</a></li>
+        <li><a href="#tabs-Password">Password</a></li>
+        <li><a href="#tabs-Profile">Profile</a></li>
+    </ul>
+    <div id="tabs-Account">
+        
+
+    </div>
+    <div id="tabs-Password">
+        Tab 2
+    </div>
+    <div id="tabs-Profile">
+        Tab 3
+    </div>
+    
+</div>

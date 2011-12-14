@@ -12,6 +12,11 @@ namespace GiveCampStarterSite.Controllers
     public class AccountController : Controller
     {
 
+        public ActionResult Index()
+        {
+            return this.View();
+        }
+
         //
         // GET: /Account/LogOn
 

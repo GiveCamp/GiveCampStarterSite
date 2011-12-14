@@ -3,35 +3,42 @@
     ViewBag.Title = "Nwa GiveCamp: Edit Page";
 }
 <h2>
-    Edit Page</h2>
+    Edit Page: <b>@Model.Page.Title</b></h2>
 <div class="post" style="width: 890px;">
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary(true)
 		
-        <fieldset>
-            @Html.HiddenFor(model => model.Referrer)
-            @Html.HiddenFor(model => model.Page.Id)
-            <div class="editor-field">
-                You are currently editing the <b>@Model.Page.Title</b> page.<br />
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Page.Content)
-                @Html.ValidationMessageFor(model => model.Page.Content)
-            </div>
-            <div class="wmd-preview">
-            </div>
+        @Html.HiddenFor(model => model.Referrer)
+        @Html.HiddenFor(model => model.Page.Id)
+        <div class="editor-field">
+            You are currently editing the <b>@Model.Page.Title</b> page.<br />
+            <br />
+        </div>
+        <div class="editor-field">
             <p>
-                <input type="submit" value="Save" />
+                @Html.LabelFor(model => model.Page.Title)
+                @Html.EditorFor(model => model.Page.Title)
+                @Html.ValidationMessageFor(model => model.Page.Title)
             </p>
-        </fieldset>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Page.Content)
+            @Html.ValidationMessageFor(model => model.Page.Content)
+        </div>
+        <div class="wmd-preview">
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
     }
 </div>
 <script type="text/javascript">
     tinyMCE.init({
         // General options
         mode: "textareas",
-        width: "880",
+        width: "870",
+        height: "400",
         theme: "advanced",
         plugins: "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
 
