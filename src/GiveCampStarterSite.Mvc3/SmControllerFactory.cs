@@ -10,21 +10,12 @@ namespace GiveCampStarterSite
     {
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
-            //if (controllerType == null) return base.GetControllerInstance(requestContext, controllerType);
             IController controllerObject = null;
-            //try
-            //{
+            
             if (controllerType != null)
                 controllerObject = ObjectFactory.GetInstance(controllerType) as Controller;
-            //}
-            //catch (Exception)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ObjectFactory.WhatDoIHave());
-            //    throw;
-            //}
-
+            
             return controllerObject;
         }
-
     }
 }
