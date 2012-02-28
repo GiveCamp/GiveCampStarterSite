@@ -1,9 +1,19 @@
-
 /*
 Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 */
+  
+#wrap 
+{
+    min-height: 100%; 
+    margin-bottom: -80px;
+    width: 890px;
+}
+/* for IE not Mac \*/
+* html #wrap {height: 100%;}
+/* end for IE */
+
 
 body
 {
@@ -15,32 +25,33 @@ body
     color: #7F7F7F;
 }
 
+
 body, th, td, input, textarea, select, option
 {
     font-weight: normal;
     font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3
+h1
 {
     font-weight: normal;
     color: #484848;
-}
-
-h1
-{
     letter-spacing: -1px;
     font-size: 24px;
 }
 
 h2
 {
+    font-weight: normal;
+    color: #484848;
     letter-spacing: -1px;
     font-size: 24px;
 }
 
 h3
 {
+    font-weight: normal;
+    color: #484848;
     font-size: 12px;
 }
 
@@ -77,7 +88,7 @@ a:hover
 {
     width: 890px;
     height: 190px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 #logindisplay
@@ -148,8 +159,8 @@ a:hover
 
 #menu ul
 {
-    margin: 0px;
-    padding: 50px 0px 0px 0px;
+    margin: 0;
+    padding: 50px 0 0 0;
     list-style: none;
 }
 
@@ -179,7 +190,6 @@ a:hover
 #page
 {
     width: 890px;
-    height: 100%;
     margin: 0 auto;
     background-color: White;
     border-top-left-radius: 5px;
@@ -194,7 +204,6 @@ a:hover
 {
     float: left;
     width: 590px;
-    height: 100%;
     padding-left: 10px;
 }
 
@@ -202,7 +211,6 @@ a:hover
 {
     float: left;
     width: 880px;
-    height: 100%;
 }
 
 .post
@@ -247,7 +255,6 @@ a:hover
 {
     float: right;
     width: 240px;
-    height: 100%;
     padding-right: 10px;
 }
 
@@ -357,7 +364,7 @@ a.button:active span
 #footer
 {
     clear: both;
-    margin: 0px;
+    margin: 0;
     height: 80px;
     background-color: #F2F2F2;
     /* background: #F2F2F2 url(images/bg02.jpg) repeat-x left top; */
