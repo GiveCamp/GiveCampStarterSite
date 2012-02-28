@@ -137,6 +137,7 @@
   <ItemGroup>
     <Content Include="App_Data\GiveCamp.sdf" />
     <Content Include="Content\calendar_icon.jpg" />
+    <Content Include="Content\cssreset.css" />
     <Content Include="Content\GiveCamp_FINAL_small.png" />
     <Content Include="Themes\GiveCampTheme\Images\bg01.jpg" />
     <Content Include="Themes\GiveCampTheme\Images\bg02.jpg" />
