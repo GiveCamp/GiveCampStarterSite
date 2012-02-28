@@ -11,48 +11,49 @@
 </head>
 <body>
     <!-- start new header -->
-    <div id="header">
-        <div id="logo">
-            <a href="/">
-                <img src="/Content/GiveCamp_FINAL_small.png" title="GiveCamp"
-                    alt="GiveCamp.org" /></a>
+    <div id="wrap">
+        <div id="header">
+            <div id="logo">
+                <a href="/">
+                    <img src="/Content/GiveCamp_FINAL_small.png" title="GiveCamp" alt="GiveCamp.org" /></a>
+                <p>
+                    @GiveCampStarterSite.SiteSettings.Instance.SubTitle</p>
+            </div>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+            <div id="menu">
+                <ul>
+                    <li id="navHome">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="navVolunteer">@Html.ActionLink("Volunteer", "Index", "Volunteer")</li>
+                    <li id="navCharity">@Html.ActionLink("Charity", "Index", "Charity")</li>
+                    <li id="navSponsor">@Html.ActionLink("Sponsor", "Index", "Sponsor")</li>
+                    <li id="navAbout">@Html.ActionLink("About", "About", "Home")</li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li id="navSettings">@Html.ActionLink("Settings", "Index", "Settings")</li>    
+                    }
+                </ul>
+            </div>
+        </div>
+        <!-- start page -->
+        <div id="page">
+            <!-- start content -->
+            <div id="content">
+                @RenderBody()
+            </div>
+            <div id="sidebar">
+                @RenderSection("SideBar", false)
+            </div>
+            <div style="clear: both;">
+                &nbsp;</div>
+        </div>
+        <div id="footer">
             <p>
-                @GiveCampStarterSite.SiteSettings.Instance.SubTitle</p>
+                &copy;2009 All Rights Reserved. &nbsp;&bull;&nbsp; Design by <a href="http://www.freecsstemplates.org/">
+                    Free CSS Templates</a> &nbsp;&bull;&nbsp; Icons by <a href="http://www.famfamfam.com/">
+                        FAMFAMFAM</a>.</p>
         </div>
-        <div id="logindisplay">
-            @Html.Partial("_LogOnPartial")
-        </div>
-        <div id="menu">
-            <ul>
-                <li id="navHome">@Html.ActionLink("Home", "Index", "Home")</li>
-                <li id="navVolunteer">@Html.ActionLink("Volunteer", "Index", "Volunteer")</li>
-                <li id="navCharity">@Html.ActionLink("Charity", "Index", "Charity")</li>
-                <li id="navSponsor">@Html.ActionLink("Sponsor", "Index", "Sponsor")</li>
-                <li id="navAbout">@Html.ActionLink("About", "About", "Home")</li>
-                @if (User.IsInRole("Administrator"))
-                {
-                    <li id="navSettings">@Html.ActionLink("Settings", "Index", "Settings")</li>    
-                }
-            </ul>
-        </div>
-    </div>
-    <!-- start page -->
-    <div id="page">
-        <!-- start content -->
-        <div id="content">
-            @RenderBody()
-        </div>
-        <div id="sidebar">
-            @RenderSection("SideBar", false)
-        </div>
-        <div style="clear: both;">
-            &nbsp;</div>
-    </div>
-    <div id="footer">
-        <p>
-            &copy;2009 All Rights Reserved. &nbsp;&bull;&nbsp; Design by <a href="http://www.freecsstemplates.org/">
-                Free CSS Templates</a> &nbsp;&bull;&nbsp; Icons by <a href="http://www.famfamfam.com/">
-                    FAMFAMFAM</a>.</p>
     </div>
 </body>
 </html>
